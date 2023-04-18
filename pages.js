@@ -44,6 +44,7 @@ let right = 39;
 var endGame;
 var gameDuration;
 var isGame = false;
+var champAudio;
 
 function checkLogin(){
   const errorMsg = document.getElementById("login-error-msg-Login");
@@ -155,6 +156,7 @@ function registerpage(){
     endGame = -1;
     stopGame();
   }
+  champAudio.pause();
   document.getElementById("Setting").style.display = "none";
   document.getElementById("Welcome").style.display = "none";
   document.getElementById("Login").style.display = "none";
@@ -175,6 +177,7 @@ function Welcomepage(){
     endGame = -1;
     stopGame();
   }
+  champAudio.pause();
   document.getElementById("Setting").style.display = "none";
   document.getElementById("Welcome").style.display = "flex";
   document.getElementById("Login").style.display = "none";
@@ -199,6 +202,7 @@ function loginpage(){
     endGame = -1;
     stopGame();
   }
+  champAudio.pause();
   document.getElementById("Setting").style.display = "none";
   document.getElementById("Welcome").style.display = "none";
   document.getElementById("Login").style.display = "flex";
@@ -219,6 +223,7 @@ function rulespage(){
     endGame = -1;
     stopGame();
   }
+  champAudio.pause();
   document.getElementById("Setting").style.display = "none";
   document.getElementById("Welcome").style.display = "none";
   document.getElementById("Login").style.display = "none";
@@ -274,6 +279,7 @@ function closeModalOnEscape(event) {
   }
 
   function settingpage(){
+    champAudio.pause();
     document.getElementById("Setting").style.display = "flex";
     document.getElementById("Welcome").style.display = "none";
     document.getElementById("Login").style.display = "none";
@@ -315,6 +321,7 @@ function ChooseKeys(){
 }
 
 function championTable(){
+  champAudio.pause();
   document.getElementById("ChooseKeys").style.display = "none";
   document.getElementById("EnemyShip").style.display = "none";
   document.getElementById("Setting").style.display = "none";
@@ -819,7 +826,7 @@ function addScore() {
     }
     else if (endGame == 2) { // all enemies died "Champion!"
       document.getElementById("champion").style.display = "flex";
-      const champAudio = new Audio("sounds/we-are-the-champions-copia.mp3");
+      champAudio = new Audio("sounds/we-are-the-champions-copia.mp3");
       champAudio.play();
       gameMusic.pause();
       champAudio.loop = true;
