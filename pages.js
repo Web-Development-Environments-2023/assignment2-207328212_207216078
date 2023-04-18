@@ -1098,4 +1098,6 @@ function stopGifMusic(){
   else if(tryPlay){
     tryAudio.pause();
   }
+  "hey"
+
 }
