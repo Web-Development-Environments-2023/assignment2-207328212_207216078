@@ -47,8 +47,8 @@ var isGame = false;
 
 function checkLogin(){
   const errorMsg = document.getElementById("login-error-msg-Login");
-	let name = document.getElementById('usernameLogin').value;
-	let password = document.getElementById('passwordLogin').value;
+  let name = document.getElementById('usernameLogin').value;
+  let password = document.getElementById('passwordLogin').value;
     errorMsg.innerHTML='';
     for(i=0 ; i < listOfUsers.length ; i++){
         if(listOfUsers[i][0] == name){
@@ -86,7 +86,6 @@ function checkRegister(){
     const hasNumberFirst = /\d/.test(firstNameValue);
     const hasNumberLast = /\d/.test(lastNameValue);
 
-
     if(userNameValue === '' || emailValue === '' || passwordValue === '' || password2Value === '' || firstNameValue === '' || lastNameValue === '' ||dateValue === '') {
         errorMsg.innerHTML = "All details must be not empty.";
     }
@@ -105,7 +104,7 @@ function checkRegister(){
         errorMsg.innerHTML = "Password must include digits and characters.";
     }
 
-	else if(passwordValue !== password2Value) {
+  else if(passwordValue !== password2Value) {
         errorMsg.innerHTML = 'Passwords does not match.';
     }
 
@@ -116,7 +115,6 @@ function checkRegister(){
         errorMsg.innerHTML = "Last Name cannot contain digits.";
 }
 
-
     else{
         listOfUsers.push([userNameValue,passwordValue]);
         usersScores[userNameValue] = new Array() // add list of scores 
@@ -126,21 +124,20 @@ function checkRegister(){
     }
 };
 
-
 function clearFuncReg(){
-	document.getElementById('username').value = '';
-	document.getElementById('email').value = '';
-	document.getElementById('password').value = '';
-	document.getElementById('password2').value = '';
+  document.getElementById('username').value = '';
+  document.getElementById('email').value = '';
+  document.getElementById('password').value = '';
+  document.getElementById('password2').value = '';
   document.getElementById('firstname').value = '';
-	document.getElementById('lastname').value = '';
+  document.getElementById('lastname').value = '';
   document.getElementById('bday').value = '';
 }
 
 window.onloadstart = Welcomepage();
 
 function isEmail(email) {
-	return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
+  return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
 }
 
 function userNameValueExist(userNameValue){
@@ -159,10 +156,10 @@ function registerpage(){
     stopGame();
   }
   document.getElementById("Setting").style.display = "none";
-	document.getElementById("Welcome").style.display = "none";
-	document.getElementById("Login").style.display = "none";
-	document.getElementById("RegisterPage").style.display = "flex";
-	document.getElementById("Rules").style.display = "none";
+  document.getElementById("Welcome").style.display = "none";
+  document.getElementById("Login").style.display = "none";
+  document.getElementById("RegisterPage").style.display = "flex";
+  document.getElementById("Rules").style.display = "none";
   document.getElementById("EnemyShip").style.display = "none";
   document.getElementById("ChooseKeys").style.display = "none";
   document.getElementById("myModal").style.display = "none";
@@ -180,9 +177,9 @@ function Welcomepage(){
   }
   document.getElementById("Setting").style.display = "none";
   document.getElementById("Welcome").style.display = "flex";
-	document.getElementById("Login").style.display = "none";
-	document.getElementById("RegisterPage").style.display = "none";
-	document.getElementById("Rules").style.display = "none";
+  document.getElementById("Login").style.display = "none";
+  document.getElementById("RegisterPage").style.display = "none";
+  document.getElementById("Rules").style.display = "none";
   document.getElementById("EnemyShip").style.display = "none";
   document.getElementById("ChooseKeys").style.display = "none";
   document.getElementById("myModal").style.display = "none";
@@ -203,10 +200,10 @@ function loginpage(){
     stopGame();
   }
   document.getElementById("Setting").style.display = "none";
-	document.getElementById("Welcome").style.display = "none";
-	document.getElementById("Login").style.display = "flex";
-	document.getElementById("RegisterPage").style.display = "none";
-	document.getElementById("Rules").style.display = "none";
+  document.getElementById("Welcome").style.display = "none";
+  document.getElementById("Login").style.display = "flex";
+  document.getElementById("RegisterPage").style.display = "none";
+  document.getElementById("Rules").style.display = "none";
   document.getElementById("EnemyShip").style.display = "none";
   document.getElementById("ChooseKeys").style.display = "none";
   document.getElementById("myModal").style.display = "none";
@@ -249,7 +246,6 @@ function menuClick(){
 
 window.addEventListener("load",menuClick,false);
 
-
 function openModal() {
     document.getElementById("myModal").style.display = "block";
     document.addEventListener("keydown", closeModalOnEscape);
@@ -277,10 +273,9 @@ function closeModalOnEscape(event) {
 
   }
 
-
   function settingpage(){
     document.getElementById("Setting").style.display = "flex";
-	  document.getElementById("Welcome").style.display = "none";
+    document.getElementById("Welcome").style.display = "none";
     document.getElementById("Login").style.display = "none";
     document.getElementById("RegisterPage").style.display = "none";
     document.getElementById("Rules").style.display = "none";
@@ -309,7 +304,7 @@ function ChooseKeys(){
     document.getElementById("ChooseKeys").style.display = "flex";
     document.getElementById("EnemyShip").style.display = "none";
     document.getElementById("Setting").style.display = "none";
-	  document.getElementById("Welcome").style.display = "none";
+    document.getElementById("Welcome").style.display = "none";
     document.getElementById("Login").style.display = "none";
     document.getElementById("RegisterPage").style.display = "none";
     document.getElementById("Rules").style.display = "none";
@@ -318,7 +313,6 @@ function ChooseKeys(){
     document.getElementById("GameOver").style.display = "none";
     document.getElementById("championTable").style.display = "none";
 }
-
 
 function championTable(){
   document.getElementById("ChooseKeys").style.display = "none";
@@ -348,7 +342,6 @@ function myFunctionSpace(event) {
     input.value = event.key;
   }
 }
-
 
 function StartGame(){
     const errorMsg = document.getElementById("configuration-error-msg");
@@ -380,7 +373,6 @@ function StartGame(){
     }
 
 
-
     function Game(){
     isGame = true;
     endGame = -1;
@@ -405,7 +397,6 @@ function StartGame(){
         }
         isPlay = !isPlay; // toggle the flag variable
       });
-
 
     score = document.getElementById("score-label").innerHTML = "Score:" + numOfScore;
     gameDuration = document.getElementById("myRange").value;  
@@ -432,7 +423,6 @@ function StartGame(){
         gameDuration -= 1;
     }, 1000)       
     }
-
 
     function pressKeyUp(e) {
         if (e.keyCode === down) {
@@ -473,7 +463,6 @@ function StartGame(){
     myShip= st.concat(source,st1);
   }
 
-
     function playerSpaceShip(){
     playerX = screenWidth / 2 ;
     playerY = screenHeight - 1*screenHeight/10 ;
@@ -505,7 +494,6 @@ function StartGame(){
     }
     // document.getElementById('Game').appendChild(hearts);
   }
-
 
   var lastTime = null;
   function updateMySpace(currentTime) {
@@ -553,7 +541,6 @@ function StartGame(){
   }
 
 function shoot() {
-
     let shoot = document.createElement("img");
     shoot.setAttribute('src',"photos/laser.jpg");
 
@@ -572,6 +559,11 @@ function shoot() {
     const shootAudio = new Audio("sounds/SpacedInvaders-Shoot.mp3");
     shootAudio.play();
     let moveUp = setInterval(() => {
+      if (!isGame){
+        clearInterval(moveUp);
+        shoot.parentNode.removeChild(shoot);
+        return;
+      }
       if(endGame === 0){
         shoot.parentNode.removeChild(shoot);
         return;
@@ -621,7 +613,6 @@ function shoot() {
     return false;
   }
 
-
 function addScore() {
     const scoreLabel = document.getElementById("score-label");
     let scoreValue = parseInt(scoreLabel.innerText.replace("Score:", "").trim());
@@ -648,14 +639,12 @@ function addScore() {
   }
   
   function stopGame(){
-    console.log(endGame)
     clearInterval(timer);
     clearInterval(timerEnemySpaceShip);
     clearTimeout(timeOutEndGame0);
     clearTimeout(timeOutEndGameWinner);
     clearTimeout(timeOutEndGame1);
     clearTimeout(timeOutEndGame2);
-    // clearInterval(shootOnMe);
     gameMusic.pause();
 
     shootingKey = '';
@@ -877,17 +866,18 @@ function addScore() {
       }, 3000)
       clearAllObject();
     }
-    
-    // for(let i =0 ; i < 20 ; i++){
-    //   let enemy = enemySpaceships.pop();
-    //   enemy.img.parentNode.removeChild(enemy.img);
-    // }
-    // mySpaceShip.parentNode.removeChild(mySpaceShip);
+    // clearAllObject();
 
-    // for(let j=0;j < hearts ; j++){
-    //   let heart = hearts.pop();
-    //   heart.parentNode.removeChild(heart);
-    // }
+    for(let i =0 ; i < 20 ; i++){
+      let enemy = enemySpaceships.pop();
+      enemy.img.parentNode.removeChild(enemy.img);
+    }
+    mySpaceShip.parentNode.removeChild(mySpaceShip);
+
+    for(let j=0;j < hearts ; j++){
+      let heart = hearts.pop();
+      heart.parentNode.removeChild(heart);
+    }
   }
 
   
@@ -930,13 +920,11 @@ function enemySpaceShip() {
 
 
 
-
 function moveEnemySpaceships() {
   var directionX = 1; // Start moving to the right initially
   var moveDistance = 1; // Set the initial distance to move in pixels
   var speedIncrease = 1; // Set the speed increase amount in pixels
   var speedIncreaseCount = 0; // Keep track of speed increase count
-
 
   timerEnemySpaceShip = setInterval(function() {
     // Update the positions of all enemy spaceships
@@ -965,7 +953,6 @@ function moveEnemySpaceships() {
 
 var startTime = new Date().getTime(); // Store the start time to keep track of time
 
-
   function clampX(v, min, max) {
     return v < min ? min : v > max ? max : v;
   }
@@ -976,6 +963,9 @@ var startTime = new Date().getTime(); // Store the start time to keep track of t
   
   // Define a function to create enemy bullets
 function createEnemyBullet(x, y) {
+  if (!isGame){
+    return;
+  }
   var bullet = new Image();
   bullet.src = "photos/enemyBullet.png"; 
   bullet.classList.add('enemyBulletImage');
@@ -987,6 +977,9 @@ function createEnemyBullet(x, y) {
   document.getElementById('Game').appendChild(bullet);
 
   var intervalId = setInterval(function() {
+    if (!isGame){
+      return;
+    }
     // Update bullet position
     y += 5; 
     bullet.style.top = y + "px";
@@ -1021,6 +1014,7 @@ function createEnemyBullet(x, y) {
 
 function ShootOnMe(){
   shootOnMe = setInterval(function() {
+
   const enemyCount = enemySpaceships.length;
  
   if (enemyCount === 0) {
@@ -1034,7 +1028,6 @@ function ShootOnMe(){
 }
  window.requestAnimationFrame(ShootOnMe);
 
-
  function clearScreen(){
   clearAllObject();
   document.getElementById("YouCanDoBetter").style.display = "none";
@@ -1045,16 +1038,23 @@ function ShootOnMe(){
  }
 
  function clearAllObject(){
-  mySpaceShip.parentNode.removeChild(mySpaceShip);
+  if (mySpaceShip){
+    mySpaceShip.parentNode.removeChild(mySpaceShip);
+  }
   shootingKey = '';
 
   // destroy heart for life icon
   for (let i=0; i < hearts.length; i++) {
     let heart = hearts[i]
-    heart.parentNode.removeChild(heart)
+    if (heart){
+      heart.parentNode.removeChild(heart)
+    }
   }
 
   // destroy pause/play music button
   let button = document.getElementById("audioButton");
+  if (button){
   button.parentNode.removeChild(button);
+  }
  }
+
