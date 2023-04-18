@@ -41,7 +41,7 @@ let up = 38;
 let down = 40;
 let left = 37;
 let right = 39;
-var endGame;
+var endGame = -1;
 var gameDuration;
 var isGame = false;
 var champAudio;
@@ -597,7 +597,7 @@ function shoot() {
         shoot.parentNode.removeChild(shoot);
         return;
       }
-      if( enemySpaceships.length === 0 && (!enemyDie)){
+      if( enemySpaceships.length === 0 && (!enemyDie) && endGame == -1){
         clearInterval(timerEnemySpaceShip);
         shoot.parentNode.removeChild(shoot);
         enemyDie = true;
@@ -1026,7 +1026,7 @@ function createEnemyBullet(x, y) {
     if ((bulletRect.bottom >= playerRect.top && bulletRect.top <= playerRect.bottom && bulletRect.right >= playerRect.left && bulletRect.left <= playerRect.right) && hearts.length != 0) {
       let heart = hearts.pop();
       heart.parentNode.removeChild(heart);
-      if(hearts.length === 0 ){
+      if(hearts.length === 0 && endGame != 2){
         endGame = 1;
         stopGame();
       }
