@@ -156,7 +156,6 @@ function registerpage(){
     endGame = -1;
     stopGame();
   }
-  champAudio.pause();
   document.getElementById("Setting").style.display = "none";
   document.getElementById("Welcome").style.display = "none";
   document.getElementById("Login").style.display = "none";
@@ -177,7 +176,6 @@ function Welcomepage(){
     endGame = -1;
     stopGame();
   }
-  champAudio.pause();
   document.getElementById("Setting").style.display = "none";
   document.getElementById("Welcome").style.display = "flex";
   document.getElementById("Login").style.display = "none";
@@ -202,7 +200,6 @@ function loginpage(){
     endGame = -1;
     stopGame();
   }
-  champAudio.pause();
   document.getElementById("Setting").style.display = "none";
   document.getElementById("Welcome").style.display = "none";
   document.getElementById("Login").style.display = "flex";
@@ -223,7 +220,6 @@ function rulespage(){
     endGame = -1;
     stopGame();
   }
-  champAudio.pause();
   document.getElementById("Setting").style.display = "none";
   document.getElementById("Welcome").style.display = "none";
   document.getElementById("Login").style.display = "none";
@@ -279,7 +275,6 @@ function closeModalOnEscape(event) {
   }
 
   function settingpage(){
-    champAudio.pause();
     document.getElementById("Setting").style.display = "flex";
     document.getElementById("Welcome").style.display = "none";
     document.getElementById("Login").style.display = "none";
