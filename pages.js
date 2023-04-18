@@ -316,7 +316,6 @@ function ChooseKeys(){
 }
 
 function championTable(){
-  champAudio.pause();
   document.getElementById("ChooseKeys").style.display = "none";
   document.getElementById("EnemyShip").style.display = "none";
   document.getElementById("Setting").style.display = "none";
