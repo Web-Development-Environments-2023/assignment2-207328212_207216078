@@ -424,6 +424,7 @@ function StartGame(){
 
     function Game(){
     // clearAllObject();  
+    numOfScore = 0;
     isGame = true;
     endGame = -1;
     gameMusic = new Audio("sounds/game-Music.mp3");
@@ -1197,4 +1198,32 @@ function records() {
   newRow.appendChild(dateCell);
   newRow.appendChild(scoreCell);
   table.querySelector('tbody').appendChild(newRow);
+
+  const rows = table.querySelectorAll('tbody tr');
+  const rowsArray = Array.from(rows);
+  rowsArray.sort((rowA, rowB) => {
+    const scoreA = parseInt(rowA.cells[1].textContent);
+    const scoreB = parseInt(rowB.cells[1].textContent);
+    return scoreB - scoreA;
+  });
+  rowsArray.forEach(row => table.querySelector('tbody').appendChild(row));
+  numOfScore = 0;
+
+
+  // let latestDate = null;
+  // const rowCount = rowsArray.length;
+  // for (let i = 1; i < rowCount; i++) {
+  //   const row = rowsArray[i];
+  //   const date = new Date(row.cells[0].textContent);
+  //   if (!latestDate || date > latestDate) {
+  //     latestDate = date;
+  //   }
+  // }
+
+  // const latestDateString = latestDate ? latestDate.toLocaleString() : 'No records found';
+  // const latestDateString = latestDate.toLocaleString();
+  // const latestDateCell = table.querySelector('tbody tr:last-child td:first-child');
+  // latestDateCell.textContent = latestDate;
+  newRow.classList.add('last-date');
+  
 }

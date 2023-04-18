@@ -1441,3 +1441,9 @@ font-weight: 800;
 animation: slice 3s, dynamic 7s infinite alternate linear;
 white-space: nowrap;
 }
+
+.last-date {
+  background-color: rgb(209, 132, 205);
+  font-weight: bold;
+  animation: glow 1s ease-in-out infinite alternate;
+}
