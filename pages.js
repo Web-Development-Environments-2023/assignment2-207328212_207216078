@@ -45,6 +45,12 @@ var endGame;
 var gameDuration;
 var isGame = false;
 var champAudio;
+var champPlay = false;
+var looseAudio;
+var winAudio;
+var winPlay = false;
+var tryAudio;
+var tryPlay = false;
 
 function checkLogin(){
   const errorMsg = document.getElementById("login-error-msg-Login");
@@ -688,9 +694,10 @@ function addScore() {
     // window.alert(usersScores[curLoggedUser])
     if (endGame == 0) { // time over
       if (scoreValue < 100) { // "you can do better"
-        const tryAudio = new Audio("sounds/trynexttime.mp3");
+        tryAudio = new Audio("sounds/trynexttime.mp3");
         tryAudio.play();
         tryAudio.loop = true;
+        tryPlay = true;
         gameMusic.pause();
         document.getElementById("YouCanDoBetter").style.display = "flex";
         timeOutEndGame0 = setTimeout (function() {
@@ -741,8 +748,9 @@ function addScore() {
 
       else { // "Winner!"
         document.getElementById("Winner").style.display = "flex";
-        const winAudio = new Audio("sounds/Chicken-Dance.mp3");
+        winAudio = new Audio("sounds/Chicken-Dance.mp3");
         winAudio.play();
+        winPlay = true;
         gameMusic.pause();
         winAudio.loop = true;
         timeOutEndGameWinner = setTimeout (function() {
@@ -791,7 +799,7 @@ function addScore() {
     }
     else if (endGame == 1) { // life over "You Lost"
       document.getElementById("youLost").style.display = "flex";
-      const looseAudio = new Audio("sounds/Lose.mp3");
+      looseAudio = new Audio("sounds/Lose.mp3");
       looseAudio.play();
       gameMusic.pause();
       timeOutEndGame1 = setTimeout (function() {
@@ -842,6 +850,7 @@ function addScore() {
       document.getElementById("champion").style.display = "flex";
       champAudio = new Audio("sounds/we-are-the-champions-copia.mp3");
       champAudio.play();
+      champPlay = true;
       gameMusic.pause();
       champAudio.loop = true;
       timeOutEndGame2 = setTimeout (function() {
@@ -1079,3 +1088,14 @@ function ShootOnMe(){
   }
  }
 
+function stopGifMusic(){
+  if(champPlay){
+    champAudio.pause();
+  }
+  else if(winPlay){
+    winAudio.pause();
+  }
+  else if(tryPlay){
+    tryAudio.pause();
+  }
+}
