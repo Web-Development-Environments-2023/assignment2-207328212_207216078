@@ -868,16 +868,16 @@ function addScore() {
     }
     // clearAllObject();
 
-    for(let i =0 ; i < 20 ; i++){
-      let enemy = enemySpaceships.pop();
-      enemy.img.parentNode.removeChild(enemy.img);
-    }
-    mySpaceShip.parentNode.removeChild(mySpaceShip);
+    // for(let i =0 ; i < 20 ; i++){
+    //   let enemy = enemySpaceships.pop();
+    //   enemy.img.parentNode.removeChild(enemy.img);
+    // }
+    // mySpaceShip.parentNode.removeChild(mySpaceShip);
 
-    for(let j=0;j < hearts ; j++){
-      let heart = hearts.pop();
-      heart.parentNode.removeChild(heart);
-    }
+    // for(let j=0;j < hearts ; j++){
+    //   let heart = hearts.pop();
+    //   heart.parentNode.removeChild(heart);
+    // }
   }
 
   
