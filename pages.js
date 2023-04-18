@@ -168,6 +168,11 @@ function registerpage(){
   document.getElementById("GameOver").style.display = "none";
   document.getElementById("championTable").style.display = "none";
   document.getElementById("submit").addEventListener("click",checkInputs);
+  document.getElementById("YouCanDoBetter").style.display = "none";
+  document.getElementById("Winner").style.display = "none";
+  document.getElementById("youLost").style.display = "none";
+  document.getElementById("champion").style.display = "none";
+  document.getElementById("championTable").style.display = "none";
 }
 
 function Welcomepage(){
@@ -211,6 +216,11 @@ function loginpage(){
   document.getElementById("Game").style.display = "none";
   document.getElementById("GameOver").style.display = "none";
   document.getElementById("championTable").style.display = "none";
+  document.getElementById("YouCanDoBetter").style.display = "none";
+  document.getElementById("Winner").style.display = "none";
+  document.getElementById("youLost").style.display = "none";
+  document.getElementById("champion").style.display = "none";
+  document.getElementById("championTable").style.display = "none";
 
 }
 
@@ -230,6 +240,11 @@ function rulespage(){
   document.getElementById("myModal").style.display = "none";
   document.getElementById("Game").style.display = "none";
   document.getElementById("GameOver").style.display = "none";
+  document.getElementById("championTable").style.display = "none";
+  document.getElementById("YouCanDoBetter").style.display = "none";
+  document.getElementById("Winner").style.display = "none";
+  document.getElementById("youLost").style.display = "none";
+  document.getElementById("champion").style.display = "none";
   document.getElementById("championTable").style.display = "none";
 }
 
@@ -284,6 +299,11 @@ function closeModalOnEscape(event) {
     document.getElementById("ChooseKeys").style.display = "none";
     document.getElementById("myModal").style.display = "none";
     document.getElementById("GameOver").style.display = "none";
+    document.getElementById("championTable").style.display = "none";
+    document.getElementById("YouCanDoBetter").style.display = "none";
+    document.getElementById("Winner").style.display = "none";
+    document.getElementById("youLost").style.display = "none";
+    document.getElementById("champion").style.display = "none";
     document.getElementById("championTable").style.display = "none";
 }
 
