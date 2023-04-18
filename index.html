@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-TjSPV7mLRtJ21cPK7+SMYjYnTZ7TNQX9JyZMj79cCHhJ0jkQ2jPvMTRHH+j6JhGN6+8WNVp9CECq1D6RuZfO+A==" crossorigin="anonymous" />
+
+    <link rel="stylesheet" type="text/css" href="style.css" />
+    <link rel="icon" href="photos/CI4_SuperChick.jpg" type="image/png" size="20x20">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chicken Invaders Universe</title>
+
+</head>
+<body>
+
+    <div id="menu">
+    <div>
+    <img class ="img" src="photos\logo.jpg">
+</div>
+<ul class="items">
+    <div class="but">
+        <button href="#Welcome" id="W" class="btn" onclick="Welcomepage(); closeModal();">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Home
+      </button>
+    </div>
+    <div class="but">
+      <button href="#Login" id="lg" class="btn" onclick="loginpage(); closeModal();">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Login
+      </button>
+    </div>
+      <div class="but">
+      <button href="#RegisterPage" class="btn" onclick="registerpage(); closeModal();">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Register
+      </button>
+    </div>
+      <div class="but">
+      <button href="#Rules" class="btn" onclick="rulespage(); closeModal();">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Game Rules
+      </button>
+    </div>
+      <div class="but">
+      <button  class="btn" onclick="openModal()">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        About
+      </button>
+    </div>
+</ul>
+</div>
+
+
+<div id="Welcome" class="page" >
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+    <div class="row"></div>
+    <div class="container">
+        <div class="center">
+            <img class="chick" src="photos/BigChickenCI4.jpg">
+            <img class="chick" src="photos/SweaterChickenCIU.jpg">
+            <img class="chick" src="photos/Clownchicken.jpg">
+            <img class="chick" src="photos/space20.jpg">
+            <img class="chick" src="photos/CI4_SuperChick.jpg">
+            <img class="chick" src="photos/green.jpg">
+            <img class="chick" src="photos/MagneticManipulator.jpg">
+            <h1 class="Chicken">Chicken Invaders Universe</h1>
+            <br>
+            <br>
+            <center>
+                <ab href="#Login" onclick="loginpage()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Login
+                  </ab>
+                  <ab href="#RegisterPage" onclick="registerpage()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Register
+                  </ab>
+                  <ab href="#About" onclick="openModal()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    About
+                  </ab>
+            </center>
+        </div>
+    </div>
+    
+    <link href="https://use.fontawesome.com/releases/v5.0.2/css/all.css" rel="stylesheet">
+</div>
+
+
+
+<div id="Login" class="page" style="display: none;">
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+    <div class="clouds"></div>
+    <div class="login-box">
+        <h2>Login</h2>
+        <form>
+
+
+          <div class="user-box">
+            <input type="text"  id="usernameLogin" name="" required="">
+            <label for="usernameLogin">Username</label>
+          </div>
+
+          <div class="user-box">
+            <input type="password" id="passwordLogin" name="" required="">
+            <label for="passwordLogin">Password</label>
+          </div>
+          <a href="#" onclick="checkLogin()">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Submit
+          </a>
+          <div id="login-error-msg-Login"></div>
+        </form>
+      </div>
+</div>
+
+
+
+<div id="RegisterPage" class="page" style="display: none;">
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+    <div class="clouds"></div>
+    <div class="login-box">
+        <h2>Register</h2>
+        <form id="formR" class="formR">
+
+          <div class="user-box">
+            <input type="text"  id="username" name="" required/>
+            <label for="username">Username</label>
+        </div>
+
+
+        <div class="user-box">
+            <input type="mail" id="email" name="" required/>
+            <label for="email">Email</label>
+        </div>
+
+
+        <div class="user-box">
+            <input type="password" id="password" name="" required/>
+            <label for="password">Password</label>
+            <i class="bi bi-eye-slash" id="togglePassword"></i>
+        </div>
+
+        <div class="user-box">
+            <input type="password" id="password2" name="password2" required/>
+            <label for="password2">Confirm Password</label>
+        </div>
+      
+
+        <div class="user-box">
+            <input type="text" id="firstname" name="" required/>
+            <label for="firstname">First Name</label>
+        </div>
+
+        <div class="user-box">
+            <input type="text" id="lastname" name="" required/>
+            <label for="lastname">Last Name</label>
+        </div>
+
+        <div class="user-box">
+            <input type="date" id="bday" name="" required/>
+            <label for="bday">Birth Date</label>
+        </div>
+
+            <a href="#" onclick="checkRegister()" id="Rsubmit">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            Submit
+            </a>
+            <div id="login-error-msg"></div>
+        </form>
+      </div>
+</div>
+
+
+
+<center>
+<div id="Rules" class="page" style="display: none;" position="absolute">
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+    <div class="row"></div>
+
+    <div class="imgs" >
+      <img class="chickRocket" src="photos/BLUE.jpg"></img>
+      <img class="chickRules" src="photos/space16.jpg"></img>
+      <img class="chickRocket" src="photos/BLUE.jpg"></img>
+    </div>
+
+    <div class="rules">
+        <br>
+        <div class="centered">
+          <h1>Instructions </h1>
+        </div>
+        <div class="Inst">
+          <p1> The target is to eliminate all the enemy spaceships standing in your way!</p1><br><br>
+          <p1>You can control your spaceship with:</p1>
+          <div style="margin-top: 15px;">
+            <img src="photos/up.png" style="width: 100px;"></img>
+            <img src="photos/down.png" style="width: 100px;"></img>
+            <img src="photos/left.png" style="width: 100px;"></img>
+            <img src="photos/right.png" style="width: 100px;"></img>
+          </div>
+        <br>
+          <p1>
+          In the begining of the game you choose the duration of the game and the keyboard key you want to shoot with.<br>
+          The spaceships are shooting at you so be careful - you have 3 lifes, if they run out you lose the game.<br>
+          If you managed to eliminate all 20 spaceships you will win the game.<br>
+          You have to register before you can play the game. <br>
+          Enjoy!
+          </p1>
+        </div>
+   
+      </div>
+
+
+</div>
+</center>
+
+
+    <div id="myModal" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="closeModal()">&times;</span>
+          <div class="aboutpic">         
+            <h1>About Us</h1>
+            <div class="about">
+              <p>
+                We are 3rd year students in Software and Inforamtion Systems Engineering and we created the game as part of the course "Web development environments".<br>
+                During the development we encountered several difficulties,including the movement of the objects in the game,<br>
+                working with js for the first time in general and gaming in particular, work with JQuery in a effective manner. <br>
+                This is the first online game we developed - hope you enjoy!
+              </p>
+            </div>
+            <center>
+            <div class="cardImg">
+              <div class="container1">
+                  <img class="us1" src="photos/student2.jpg">
+                <center>
+                  <div class="content1">
+                    <p>Avital Galper <br> 207328212</p>
+                  </div>
+                </center>
+              </div>
+              <div class="container1">
+                  <img class="us2" src="photos/student1.jpg">
+                <center>
+                  <div class="content2">
+                    <p>Noy Gabay <br> 207216078</p>
+                  </div>
+                </center>
+              </div>
+          </div>
+        </center>
+        </div>
+      </div>
+    </div>
+        
+
+
+
+<div id="Setting" class="page" style="display: none;">
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+    <div class="clouds"></div>
+
+        <div class="imgs" >
+          <img class="chickRocket" src="photos/BLUE.jpg"></img>
+          <img class="chickRules" src="photos/space16.jpg"></img>
+          <img class="chickRocket" src="photos/BLUE.jpg"></img>
+        </div>
+
+
+    <div class="Properties"><h1>Game Properties: <br> </h1>
+    </div>
+
+    <div class="space">
+        <p>Choose your spaceship:</p>
+    </div>
+    <div class="spaceLocationIm1">
+        
+        <img class="spaceimg1" src="photos/space2.jpg" onclick="MyShipChoose(2)">
+        <img class="spaceimg1" src="photos/space3.jpg" onclick="MyShipChoose(3)">
+        <img class="spaceimg1" src="photos/space4.jpg"onclick="MyShipChoose(4)">
+        <img class="spaceimg1" src="photos/space16.jpg"onclick="MyShipChoose(16)">
+        <img class="spaceimg1" src="photos/space20.jpg"onclick="MyShipChoose(20)">
+    </div>
+    <div class="move">
+    <ab  id= "trybtn" onclick="EnemyShipPage();">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+        Next
+  </ab>
+</div>
+<!-- <img id="selectedPicture" src="" alt="Selected Picture"> -->
+
+</div>
+
+
+
+    <div id="EnemyShip" class="page" style="display: none;">
+        <div class="stars"></div>
+        <div class="twinkling"></div>
+        <div class="clouds"></div>
+    
+        <div class="imgs" >
+          <img class="chickRocket" src="photos/BLUE.jpg"></img>
+          <img class="chickRules" src="photos/space16.jpg"></img>
+          <img class="chickRocket" src="photos/BLUE.jpg"></img>
+        </div>
+    
+        <div class="space">
+            <p>Choose your enemy spaceship:</p>
+        </div>
+
+        <div class="spaceLocationIm2">
+            <img class="spaceimg2" src="photos/space5.jpg" onclick="MyEnemyShipChoose(5)">
+            <img class="spaceimg2" src="photos/space13.jpg" onclick="MyEnemyShipChoose(13)">
+            <img class="spaceimg2" src="photos/space6.jpg" onclick="MyEnemyShipChoose(6)">
+            <img class="spaceimg2" src="photos/space7.jpg" onclick="MyEnemyShipChoose(7)">
+            <img class="spaceimg2" src="photos/space11.jpg" onclick="MyEnemyShipChoose(11)">
+            <img class="spaceimg2" src="photos/space10.jpg" onclick="MyEnemyShipChoose(10)">
+            <img class="spaceimg2" src="photos/space12.jpg" onclick="MyEnemyShipChoose(12)">
+        </div>
+        <div href ="#" class="move" id="nextbtn">
+            <ab onclick="ChooseKeys()">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Next
+          </ab>
+        </div>
+    </div>
+
+
+    <div id="ChooseKeys" class="page" style="display: none;">
+        <div class="stars"></div>
+        <div class="twinkling"></div>
+        <div class="clouds"></div>
+
+        <div class="imgs" >
+          <img class="chickRocket" src="photos/BLUE.jpg"></img>
+          <img class="chickRules" src="photos/space16.jpg"></img>
+          <img class="chickRocket" src="photos/BLUE.jpg"></img>
+        </div>
+        
+    <div class="space" style="top: 20%;">
+        <p>Choose the keyboard button you want to shoot with:</p>
+
+
+    <div class="spaceLocationIm2">
+        <div id="checkForGame" class="user-box">
+            <input type="text" id="buttonChoosen"  onkeyup="myFunctionSpace(event)">
+        </div>
+    </div>
+  </div>
+
+    <div class="space2">
+        <p>Choose the duration of the game (in sec):</p>
+        <p id="output" style="margin-right:15%">0</p>
+    </div>
+
+    <input type="range" min="5" max="600" value="0" class="slider" id="myRange" >
+
+    <div href ="#" class="move" id="nextbtn3">
+        <ab onclick="StartGame()">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            START GAME
+      </ab>
+      <br>
+      <br>
+      <br>
+      <div id="configuration-error-msg" style="margin-top: 50%; position: absolute;"></div>
+</div>
+</div>
+
+
+
+
+<div id="Game" class="page" style="display: none;">
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+    <div class="clouds"></div>
+    <img class="back" src="photos/Background.gif"></img>
+    <div class="countdown" id="countdown"></div>
+
+      <button class="start">Start</button>
+    <!-- </div> -->
+
+    <div class="score">
+      <div id="score-label"></div>
+    </div>
+</div>
+
+
+
+<div id="GameOver" class="page" style="display: none;">
+  <div class="stars"></div>
+  <div class="twinkling"></div>
+  <div class="clouds"></div>
+  <img class="back" src="photos/lost-the.gif"></img>
+  <!-- </div> -->
+</div>
+
+<!-- work -->
+<div id="YouCanDoBetter" class="page" style="display: none;">  
+  <div class="stars"></div>
+  <div class="twinkling"></div>
+  <div class="clouds"></div>
+  <img class="back" src="photos\itsNotAboutWinning.gif"></img>
+  
+  <!-- </div> -->
+</div>
+
+<div id="Winner" class="page" style="display: none;">
+  <div class="stars"></div>
+  <div class="twinkling"></div>
+  <div class="clouds"></div>
+  <img class="back" src="photos\winner.gif"></img>
+  <!-- </div> -->
+</div>
+
+<div id="youLost" class="page" style="display: none;">
+  <div class="stars"></div>
+  <div class="twinkling"></div>
+  <div class="clouds"></div>
+  <img class="back" src="photos/loser.gif"></img>
+</div>
+
+<div id="champion" class="page" style="display: none;">
+  <div class="stars"></div>
+  <div class="twinkling"></div>
+  <div class="clouds"></div>
+  <img class="back" src="photos\champion.gif"></img>
+  <!-- </div> -->
+</div>
+
+<div id="championTable" class="page" style="display: none;">
+  <div class="stars"></div>
+  <div class="twinkling"></div>
+  <div class="clouds"></div>
+  <div class="container5">
+    <div class="championship">Score Table</div>
+    <table>
+        <tr>
+          <th>Column 1</th>
+          <th>Column 2</th>
+        </tr>
+      <tbody>
+        <tr>
+          <td>Cell 1</td>
+          <td>Cell 2</td>
+
+        </tr>
+        <tr>
+          <td>Cell 1</td>
+          <td>Cell 2</td>
+        </tr>
+        <tr>
+          <td>Cell 1</td>
+          <td>Cell 2</td>
+
+        </tr>
+        <tr>
+          <td>Cell 1</td>
+          <td>Cell 2</td>
+
+        </tr>
+        <tr>
+          <td>Cell 1</td>
+          <td>Cell 2</td>
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+
+<script>
+
+    var slider = document.getElementById("myRange");
+    var output = document.getElementById("output");
+    output.innerHTML = slider.value;
+    slider.addEventListener("input", function () {
+      output.innerHTML = this.value;
+    });
+  </script>
+
+<script>
+    var loc;
+    let selectedImage;
+    let images = document.querySelectorAll(".spaceimg1");
+    images.forEach((image) => {
+        image.addEventListener("click", () => {
+        images.forEach((img) => {
+            img.classList.remove("selected");
+        });
+        image.classList.add("selected");
+        selectedImage = image;
+        let loc = localStorage.setItem("image1",selectedImage.src);
+        });
+    });
+
+    const storedImageSrc = localStorage.getItem("image1");
+
+    // /// !!!!!!!!
+    // const nxtbtn = document.getElementById("trybtn");
+    // nxtbtn.addEventListener("click", () => {
+    //   const curSelected = document.querySelector(".selected");
+    //   if (curSelected) {
+    //     curSelected.classList.remove("selected");
+    //   }
+    // })
+</script>
+
+
+<script>
+    let selectedImage2;
+    // Add event listener to each image
+    let images2 = document.querySelectorAll(".spaceimg2");
+    images2.forEach((image) => {
+        image.addEventListener("click", () => {
+        // Remove the "selected" class from all images
+        images2.forEach((img) => {
+            img.classList.remove("selected");
+        });
+        // Add the "selected" class to the clicked image
+        image.classList.add("selected");
+        selectedImage2 = image;
+        });
+    });
+</script>
+<script type="text/javascript" src="./pages.js"></script>
+<script type="text/javascript" src="./game.js"></script>
+
+<script src="jquery-1.10.2.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+</body>
+</html>
