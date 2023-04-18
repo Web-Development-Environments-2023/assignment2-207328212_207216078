@@ -157,6 +157,7 @@ function userNameValueExist(userNameValue){
 }
 
 function registerpage(){
+  stopGifMusic();
   if(isGame){
     isGame = false;
     endGame = -1;
@@ -173,12 +174,13 @@ function registerpage(){
   document.getElementById("Game").style.display = "none";
   document.getElementById("GameOver").style.display = "none";
   document.getElementById("championTable").style.display = "none";
-  document.getElementById("submit").addEventListener("click",checkInputs);
   document.getElementById("YouCanDoBetter").style.display = "none";
   document.getElementById("Winner").style.display = "none";
   document.getElementById("youLost").style.display = "none";
   document.getElementById("champion").style.display = "none";
   document.getElementById("championTable").style.display = "none";
+  document.getElementById("submit").addEventListener("click",checkInputs);
+
 }
 
 function Welcomepage(){
@@ -596,6 +598,7 @@ function shoot() {
         return;
       }
       if( enemySpaceships.length === 0 && (!enemyDie)){
+        clearInterval(timerEnemySpaceShip);
         shoot.parentNode.removeChild(shoot);
         enemyDie = true;
         endGame = 2
@@ -672,6 +675,7 @@ function addScore() {
     clearTimeout(timeOutEndGameWinner);
     clearTimeout(timeOutEndGame1);
     clearTimeout(timeOutEndGame2);
+    // clearInterval(shootOnMe); //??
     gameMusic.pause();
 
     shootingKey = '';
@@ -847,6 +851,7 @@ function addScore() {
   
     }
     else if (endGame == 2) { // all enemies died "Champion!"
+      window.alert("hey");
       document.getElementById("champion").style.display = "flex";
       champAudio = new Audio("sounds/we-are-the-champions-copia.mp3");
       champAudio.play();
@@ -908,6 +913,7 @@ function addScore() {
     //   let heart = hearts.pop();
     //   heart.parentNode.removeChild(heart);
     // }
+  endGame = -1;
   }
 
   
@@ -1017,7 +1023,7 @@ function createEnemyBullet(x, y) {
     // Check collision with player's spaceship
     var playerRect = mySpaceShip.getBoundingClientRect(); 
     var bulletRect = bullet.getBoundingClientRect();
-    if (bulletRect.bottom >= playerRect.top && bulletRect.top <= playerRect.bottom && bulletRect.right >= playerRect.left && bulletRect.left <= playerRect.right) {
+    if ((bulletRect.bottom >= playerRect.top && bulletRect.top <= playerRect.bottom && bulletRect.right >= playerRect.left && bulletRect.left <= playerRect.right) && hearts.length != 0) {
       let heart = hearts.pop();
       heart.parentNode.removeChild(heart);
       if(hearts.length === 0 ){
@@ -1055,11 +1061,12 @@ function ShootOnMe(){
  const randomEnemy = enemySpaceships[randomEnemyIndex];
  createEnemyBullet(randomEnemy.x + randomEnemy.img.width / 2, randomEnemy.y + randomEnemy.img.height);
 },1500)
+ 
 }
  window.requestAnimationFrame(ShootOnMe);
 
  function clearScreen(){
-  clearAllObject();
+  // clearAllObject();
   document.getElementById("YouCanDoBetter").style.display = "none";
   document.getElementById("Winner").style.display = "none";
   document.getElementById("youLost").style.display = "none";
@@ -1086,6 +1093,14 @@ function ShootOnMe(){
   if (button){
   button.parentNode.removeChild(button);
   }
+
+  // destroy enemy spaceships
+  var len = enemySpaceships.length;
+  for(let i =0 ; i < len ; i++){
+      let enemy = enemySpaceships.pop();
+      enemy.img.parentNode.removeChild(enemy.img);
+  }
+
  }
 
 function stopGifMusic(){
@@ -1098,6 +1113,4 @@ function stopGifMusic(){
   else if(tryPlay){
     tryAudio.pause();
   }
-  "hey"
-
 }
