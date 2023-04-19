@@ -685,6 +685,7 @@ ab span:nth-child(4){
     margin: 0 auto;
     display: inline-block;
     width: 50%;
+    
   }
   
 .cardImg{
@@ -698,11 +699,19 @@ ab span:nth-child(4){
     padding: 10px;
     bottom: 0px;
     margin-top: 90px;
-    background-color: #777;
-    background-color: #c7c7c77b;
-    display: inline-block;
+    /* background-color: #777;
+    background-color: #c7c7c77b; */
+    /* display: inline-block; */
     align-items: center;
     justify-items: center; 
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    border: none;
+  }
+
+  .content1 a {
+    margin-right: 10px;
   }
 
   .content2{
@@ -711,11 +720,19 @@ ab span:nth-child(4){
     padding: 10px;
     bottom: 0px;
     margin-top: 90px;
-    background-color: #777;
-    background-color: #c7c7c77b;
-    display: inline-block;
+    /* background-color: #777;
+    background-color: #c7c7c77b; */
+    /* display: inline-block; */
     align-items: center;
     justify-items: center; 
+    /*mine*/
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    border: none;
+  }
+  .content2 a {
+    margin-right: 10px;
   }
 
   h1{
@@ -1231,6 +1248,26 @@ div [name="try2"]{
 
   text-align: center;
 }
+
+/* #NewGameButton{
+  position: absolute;
+  display: inline-table;
+  color: #ffffff;
+  align-items: center;
+  align-self: center;
+  justify-items: right; 
+  left: 1%;
+  bottom: 60%;
+  filter: drop-shadow(0 0 5px #fff);
+  width: 8%;
+  box-shadow: 0 0 5px #dec6e8,
+  0 0 25px #bc7bd7,
+  0 0 50px #b02aea,
+  0 0 200px #b02aea;
+  color: rgb(0, 0, 0);
+  font-family: courier;
+  text-align: center;
+} */
 
 #ChooseKeys{
   text-align: center;

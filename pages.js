@@ -113,7 +113,7 @@ function checkRegister(){
         errorMsg.innerHTML = "Password must include digits and characters.";
     }
 
-  else if(passwordValue !== password2Value) {
+    else if(passwordValue !== password2Value) {
         errorMsg.innerHTML = 'Passwords does not match.';
     }
 
@@ -122,7 +122,10 @@ function checkRegister(){
     }
     else if(hasNumberLast) {
         errorMsg.innerHTML = "Last Name cannot contain digits.";
-}
+    }
+    else if(!isValidDate(dateValue)) {
+      errorMsg.innerHTML = "Birth Date cannot be after today's date";
+    }
 
     else{
         listOfUsers.push([userNameValue,passwordValue]);
@@ -132,6 +135,15 @@ function checkRegister(){
         curLoggedUser = userNameValue;
     }
 };
+
+function isValidDate(dateValue) {
+  let inputDate = new Date(dateValue);
+  let curDate = new Date();
+  if (inputDate > curDate) {
+    return false;
+  }
+  return true;
+}
 
 function clearFuncReg(){
   document.getElementById('username').value = '';
@@ -430,6 +442,7 @@ function StartGame(){
     gameMusic = new Audio("sounds/gameMuSIC2.mp3");
     gameMusic.play();
 
+    // add pause music button
     const button = document.createElement("button");
     button.textContent = "Pause Music";
     button.setAttribute("id","audioButton");
@@ -440,14 +453,26 @@ function StartGame(){
     // add event listener to button
     button.addEventListener("click", function() {
         if (!isPlay) {
-          gameMusic.play(); // if audio is paused, play it
+          gameMusic.play(); // play
           button.textContent = "Pause Music";
         } else {
-          gameMusic.pause(); // if audio is playing, pause it
+          gameMusic.pause(); // pause
           button.textContent = "Play Music";
         }
-        isPlay = !isPlay; // toggle the flag variable
+        isPlay = !isPlay; // change flag
       });
+
+    // add new game button
+    // const newGamebutton = document.createElement("button");
+    // newGamebutton.textContent = "New Game";
+    // newGamebutton.setAttribute("id","NewGameButton");
+    // // document.body.appendChild(button);
+    // document.getElementById('Game').appendChild(newGamebutton);
+    // newGamebutton.addEventListener("click", function() {
+    //   clearScreen();
+    //   gameMusic.pause();
+    // });
+
 
     score = document.getElementById("score-label").innerHTML = "Score:" + numOfScore;
     gameDuration = document.getElementById("myRange").value;  
@@ -826,17 +851,17 @@ function addScore() {
           const button2 = document.getElementById("button2");
           const button3 = document.getElementById("button3");   
           button1.addEventListener('click', function() {
-            // winAudio.pause();
+            winAudio.pause();
             Welcomepage();
           });
     
           button2.addEventListener('click', function() {
-            // winAudio.pause();
+            winAudio.pause();
             clearScreen();
           });
     
           button3.addEventListener('click', function() {
-            // winAudio.pause();
+            winAudio.pause();
             championTable();
           });
           
