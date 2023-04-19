@@ -1245,6 +1245,7 @@ div [name="try2"]{
   font-size: 20px;
   font-family: fantasy;
   text-align: center;
+    letter-spacing: 2px;
 }
 
 #audioButton:hover {
@@ -1268,6 +1269,7 @@ div [name="try2"]{
   /* font-family: courier; */
   text-align: center;
   font-family: fantasy;
+  letter-spacing: 2px;
 }
 
 #NewGameButton:hover {
@@ -1310,12 +1312,11 @@ h5{
   font-size: 16px;
   font-family: "Press Start 2P";
   color:black;
-  animation: glow 1s ease-in-out infinite alternate;
-  
-  box-shadow: 0 0 5px #dec6e8,
+  /* animation: glow 1s ease-in-out infinite alternate; */
+  /* box-shadow: 0 0 5px #dec6e8,
               0 0 25px #bc7bd7,
               0 0 50px #b02aea,
-              0 0 200px #b02aea;
+              0 0 200px #b02aea; */    
 }
 
 
@@ -1328,11 +1329,11 @@ abc{
   text-decoration: none;
   text-transform: uppercase;
   transition: 0.5s;
-  letter-spacing: 2px;
+  letter-spacing: 1.5px;
   overflow: hidden;
   /* margin-right: 50px; */
   /* margin-top: 20px; */
- 
+  border:solid 1px rgba(185, 99, 193, 0.603);
 }
 abc:hover{
   background: #b02aea;
