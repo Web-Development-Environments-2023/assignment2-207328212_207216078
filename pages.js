@@ -193,7 +193,7 @@ function registerpage(){
   document.getElementById("Winner").style.display = "none";
   document.getElementById("youLost").style.display = "none";
   document.getElementById("champion").style.display = "none";
-  document.getElementById("championTable").style.display = "none";
+
   document.getElementById("submit").addEventListener("click",checkInputs);
 
 }
@@ -247,7 +247,6 @@ function loginpage(){
   document.getElementById("Winner").style.display = "none";
   document.getElementById("youLost").style.display = "none";
   document.getElementById("champion").style.display = "none";
-  document.getElementById("championTable").style.display = "none";
 
 }
 
@@ -785,7 +784,7 @@ function addScore() {
           <h4><span class="score-value">What do you want to do?</span></h4>
           <abc id="button1" href="#Welcome" onclick="Welcomepage()"><h5>Home Page</h5></abc>
           <abc id="button2" onclick="clearScreen()"><h5>New Game</h5></abc>
-          <abc id="button3"><h5>Champion Table</h5></abc>`;
+          <abc id="button3" onclick="championTable()"><h5>Champion Table</h5></abc>`;
           modaltxt.style.alignItems = 'center';
           modaltxt.style.textAlign = 'center';
           modaltxt.style.position = 'fixed';
@@ -812,7 +811,7 @@ function addScore() {
     
           button3.addEventListener('click', function() {
             tryAudio.pause();
-            championTable();
+            // championTable();
           });
           
         }, 3000)
@@ -863,7 +862,7 @@ function addScore() {
     
           button3.addEventListener('click', function() {
             winAudio.pause();
-            championTable();
+            // championTable();
           });
           
         }, 3000)
@@ -914,7 +913,7 @@ function addScore() {
   
         button3.addEventListener('click', function() {
           looseAudio.pause();
-          championTable();
+          // championTable();
         });
         
       }, 3000)
@@ -966,7 +965,7 @@ function addScore() {
   
         button3.addEventListener('click', function() {
           champAudio.pause();
-          championTable();
+          // championTable();
         });
         
       }, 3000)
@@ -1233,7 +1232,7 @@ function records() {
     return scoreB - scoreA;
   });
   rowsArray.forEach(row => table.querySelector('tbody').appendChild(row));
-  numOfScore = 0;
+  // numOfScore = 0;
 
 
   // let latestDate = null;
@@ -1250,6 +1249,6 @@ function records() {
   // const latestDateString = latestDate.toLocaleString();
   // const latestDateCell = table.querySelector('tbody tr:last-child td:first-child');
   // latestDateCell.textContent = latestDate;
-  newRow.classList.add('last-date');
+  // newRow.classList.add('last-date');
   
 }
