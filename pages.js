@@ -993,7 +993,7 @@ function enemySpaceShip() {
   for (let j = 0; j < 5; j++) {
     var x = j * enemySpacing + ENEMY_HORIZONTAL_PADDING + 400;
     for (let i = 0; i < ENEMIES_PER_ROW- 1 ; i++) {
-      var y = ENEMY_VERTICAL_PADDING + screenHeight / 2 - 300 + i * ENEMY_VERTICAL_SPACING;    
+      var y = ENEMY_VERTICAL_PADDING + screenHeight / 2 - 350 + i * ENEMY_VERTICAL_SPACING;    
       var enemy = {x: x, y: y, speed: 5, directionX: 1, img: new Image(), row: i+1}
   
       // myEnemySpaceShip = document.createElement("img");
@@ -1088,6 +1088,7 @@ function createEnemyBullet(x, y) {
   bullet.style.top = y + "px";
   bullet.style.left = x + "px";
   bullet.style.height = "40px";
+  bullet.style.filter = "drop-shadow(5px 5px 5px #000)"
   // document.body.appendChild(bullet);
   document.getElementById('Game').appendChild(bullet);
 
@@ -1223,6 +1224,18 @@ function records() {
   newRow.appendChild(dateCell);
   newRow.appendChild(scoreCell);
   table.querySelector('tbody').appendChild(newRow);
+  
+// Remove bold class from previous last row
+const prevLastRow = table.querySelector('.bold-row');
+if (prevLastRow) {
+  prevLastRow.classList.remove('bold-row');
+}
+
+// Add bold class to current last row
+const lastRow = table.querySelector('tbody tr:last-of-type');
+lastRow.classList.add('bold-row');
+
+
 
   const rows = table.querySelectorAll('tbody tr');
   const rowsArray = Array.from(rows);
@@ -1245,10 +1258,5 @@ function records() {
   //   }
   // }
 
-  // const latestDateString = latestDate ? latestDate.toLocaleString() : 'No records found';
-  // const latestDateString = latestDate.toLocaleString();
-  // const latestDateCell = table.querySelector('tbody tr:last-child td:first-child');
-  // latestDateCell.textContent = latestDate;
-  // newRow.classList.add('last-date');
   
 }
