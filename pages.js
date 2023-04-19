@@ -427,7 +427,7 @@ function StartGame(){
     numOfScore = 0;
     isGame = true;
     endGame = -1;
-    gameMusic = new Audio("sounds/game-Music.mp3");
+    gameMusic = new Audio("sounds/gameMuSIC2.mp3");
     gameMusic.play();
 
     const button = document.createElement("button");
