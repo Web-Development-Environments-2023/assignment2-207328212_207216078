@@ -551,7 +551,7 @@ function StartGame(){
     mySpaceShip.style.top = playerY + "px";
     mySpaceShip.style.left = playerX + "px";
     mySpaceShip.style.height = "60px";
-    mySpaceShip.style.filter = "drop-shadow(5px 5px 5px #000)" //checkkkkkkkkkk
+    mySpaceShip.style.filter = "drop-shadow(2px 2px 2px #fff)" //checkkkkkkkkkk
     requestID = window.requestAnimationFrame(updateMySpace);
 
     // creates heart for life icon
@@ -562,6 +562,7 @@ function StartGame(){
         heart.style.position = "absolute";
         heart.style.height = "50px";
         heart.style.left = i * 30 + "px"; 
+        heart.style.filter = "drop-shadow(2px 2px 2px #fff)"
         heart.style.top =  screenHeight - (8.9*(screenHeight/10))+ "px"; 
         // document.body.appendChild(heart);
         document.getElementById('Game').appendChild(heart);
@@ -1008,7 +1009,7 @@ function enemySpaceShip() {
       enemy.img.style.top = enemy.y + "px";
       enemy.img.style.left = enemy.x + "px";
       enemy.img.style.height = "60px";
-      enemy.img.style.filter = "drop-shadow(5px 5px 5px #000)";
+      enemy.img.style.filter = "drop-shadow(2px 2px 2px #fff)";
       enemySpaceships.push(enemy);
       // document.body.appendChild(enemy.img);
       document.getElementById('Game').appendChild(enemy.img);
