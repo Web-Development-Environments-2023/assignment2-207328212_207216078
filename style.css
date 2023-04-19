@@ -1231,43 +1231,48 @@ div [name="try2"]{
 #audioButton{
   position: absolute;
   display: inline-table;
-  color: #ffffff;
+  /* color: #ffffff; */
   align-items: center;
   align-self: center;
   justify-items: right; 
   left: 1%;
   bottom: 60%;
-  filter: drop-shadow(0 0 5px #fff);
+  /* filter: drop-shadow(0 0 5px #fff); */
   width: 8%;
-  box-shadow: 0 0 5px #dec6e8,
-  0 0 25px #bc7bd7,
-  0 0 50px #b02aea,
-  0 0 200px #b02aea;
   color: rgb(0, 0, 0);
-  font-family: courier;
-
+  /* font-family: courier; */
+  height: 6%;
+  font-size: 20px;
+  font-family: fantasy;
   text-align: center;
 }
 
-/* #NewGameButton{
+#audioButton:hover {
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+#NewGameButton{
   position: absolute;
   display: inline-table;
-  color: #ffffff;
+  /* color: #ffffff; */
   align-items: center;
   align-self: center;
   justify-items: right; 
   left: 1%;
-  bottom: 60%;
-  filter: drop-shadow(0 0 5px #fff);
+  bottom: 50%;
+  /* filter: drop-shadow(0 0 5px #fff); */
   width: 8%;
-  box-shadow: 0 0 5px #dec6e8,
-  0 0 25px #bc7bd7,
-  0 0 50px #b02aea,
-  0 0 200px #b02aea;
+  height: 6%;
+  font-size: 20px;
   color: rgb(0, 0, 0);
-  font-family: courier;
+  /* font-family: courier; */
   text-align: center;
-} */
+  font-family: fantasy;
+}
+
+#NewGameButton:hover {
+  animation: glow 1s ease-in-out infinite alternate;
+}
 
 #ChooseKeys{
   text-align: center;

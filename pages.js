@@ -463,15 +463,15 @@ function StartGame(){
       });
 
     // add new game button
-    // const newGamebutton = document.createElement("button");
-    // newGamebutton.textContent = "New Game";
-    // newGamebutton.setAttribute("id","NewGameButton");
-    // // document.body.appendChild(button);
-    // document.getElementById('Game').appendChild(newGamebutton);
-    // newGamebutton.addEventListener("click", function() {
-    //   clearScreen();
-    //   gameMusic.pause();
-    // });
+    const newGamebutton = document.createElement("button");
+    newGamebutton.textContent = "New Game";
+    newGamebutton.setAttribute("id","NewGameButton");
+    // document.body.appendChild(button);
+    document.getElementById('Game').appendChild(newGamebutton);
+    newGamebutton.addEventListener("click", function() {
+      clearScreen();
+      gameMusic.pause();
+    });
 
 
     score = document.getElementById("score-label").innerHTML = "Score:" + numOfScore;
