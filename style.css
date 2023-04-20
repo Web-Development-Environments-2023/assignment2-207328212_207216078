@@ -1262,7 +1262,8 @@ div [name="try2"]{
   
 #audioButton{
   position: absolute;
-  display: inline-table;
+  display: flex;
+  justify-content: center;
   /* color: #ffffff; */
   align-items: center;
   align-self: center;
@@ -1287,7 +1288,8 @@ div [name="try2"]{
 
 #NewGameButton{
   position: absolute;
-  display: inline-table;
+  display: flex;
+  justify-content: center;
   /* color: #ffffff; */
   align-items: center;
   align-self: center;

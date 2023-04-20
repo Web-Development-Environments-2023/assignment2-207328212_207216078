@@ -1021,7 +1021,7 @@ function enemySpaceShip() {
   for (let j = 0; j < 5; j++) {
     var x = j * enemySpacing + ENEMY_HORIZONTAL_PADDING + 400;
     for (let i = 0; i < ENEMIES_PER_ROW- 1 ; i++) {
-      var y = ENEMY_VERTICAL_PADDING + screenHeight / 2 - 350 + i * ENEMY_VERTICAL_SPACING;    
+      var y = ENEMY_VERTICAL_PADDING + screenHeight / 2 - 320 + i * ENEMY_VERTICAL_SPACING;    
       var enemy = {x: x, y: y, speed: 5, directionX: 1, img: new Image(), row: i+1}
   
       // myEnemySpaceShip = document.createElement("img");
