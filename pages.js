@@ -1254,6 +1254,7 @@ function records() {
 const prevLastRow = table.querySelector('.bold-row');
 if (prevLastRow) {
   prevLastRow.classList.remove('bold-row');
+  prevLastRow.classList.add('tryClass');
 }
 // Add bold class to current last row
 const lastRow = table.querySelector('tbody tr:last-of-type');

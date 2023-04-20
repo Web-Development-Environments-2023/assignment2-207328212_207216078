@@ -1542,9 +1542,13 @@ th {
 	text-align: left;
     padding: 15px;
     background-color: rgba(255,255,255,0.2);
-    color: #fff;
+    color: #fff0f0;
     text-align: center;
-    background-color: #85558f;
+    background-color: #b742ce;
+    font-size: 20px;
+    font-family: fantasy;
+    letter-spacing: 6px;
+    font-weight: 500;
 }
 
 .championship {
@@ -1553,17 +1557,31 @@ th {
 color: transparent;
   filter: drop-shadow(0 0 5px #a8a4a4);
 font-family: 'Roboto', sans-serif;
-font-size: 70px;
+font-size: 80px;
 font-weight: 800;
 animation: slice 3s, dynamic 7s infinite alternate linear;
 white-space: nowrap;
+  /* font-size: 20px; */
+  /* font-family: fantasy; */
 }
 
 .bold-row {
-  background-color: rgb(209, 132, 205);
-  font-weight: bold;
+  background-color: rgba(255, 166, 242, 0);
+  /* font-weight: bold; */
   animation: glow 1s ease-in-out infinite alternate;
+  font-size: 20px;
+  font-family: fantasy;
+  text-align: center;
+  letter-spacing: 3px;
 }
+
+.tryClass{
+  font-size: 20px;
+  font-family: fantasy;
+  text-align: center;
+  letter-spacing: 3px;
+}
+
 
 footer {
   position: fixed;
