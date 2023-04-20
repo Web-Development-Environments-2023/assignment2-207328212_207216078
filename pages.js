@@ -34,7 +34,7 @@ var myShip = 'photos/space16.jpg'; // default spaceship
 var myEnemyShip ='photos/space7.jpg'; // default enemy
 var shootingKey;
 let listOfUsers = new Array()
-listOfUsers[0]=["p","p"];
+listOfUsers[0]=["p","testuser"];
 let usersScores = {}
 let curLoggedUser;
 let up = 38;
@@ -74,8 +74,10 @@ function checkLogin(){
                 return;
             }
         }
+        else {
+          errorMsg.innerHTML = "User does not exist.";
+        }
     }
-    errorMsg.innerHTML = "User does not exist.";
     return;
 }
 function clearFuncLog(){
@@ -127,22 +129,22 @@ function checkRegister(){
         errorMsg.innerHTML = "Last Name cannot contain digits.";
     }
     else if(!isValidDate(dateValue)) {
-      errorMsg.innerHTML = "Birth Date cannot be after today's date";
+      errorMsg.innerHTML = "Please enter a valid year of date.";
     }
 
     else{
         listOfUsers.push([userNameValue,passwordValue]);
-        // usersScores[userNameValue] = new Array() // add list of scores 
         clearFuncReg();
         loginpage();
-        // curLoggedUser = userNameValue;
     }
 };
 
 function isValidDate(dateValue) {
   let inputDate = new Date(dateValue);
   let curDate = new Date();
-  if (inputDate > curDate) {
+  let minDate = new Date(); 
+  minDate.setFullYear(minDate.getFullYear() - 120); // congratulations. May you live until 120
+  if (inputDate > curDate || inputDate < minDate) {
     return false;
   }
   return true;
@@ -282,10 +284,6 @@ function rulespage(){
 }
 
 function menuClick(){
-  // if(isGame){
-    // endGame = -1;
-    // stopGame();
-  // }
     document.getElementById("submit").addEventListener("click",checkInputs);
     document.getElementById("Welcome").addEventListener('click', Welcomepage);
     document.getElementById("Login").addEventListener('click', loginpage);
@@ -376,7 +374,6 @@ function ChooseKeys(){
 }
 
 function championTable(){
-  // records();
   document.getElementById("ChooseKeys").style.display = "none";
   document.getElementById("EnemyShip").style.display = "none";
   document.getElementById("Setting").style.display = "none";
@@ -422,9 +419,6 @@ function StartGame(){
         document.getElementById("Game").style.display = "flex";
         document.getElementById("GameOver").style.display = "none";
         document.getElementById('buttonChoosen').value = ''; // clear textbox
-        // window.alert("before");
-        // clearAllObject(); 
-        // window.alert("after");
         playerSpaceShip();
         enemySpaceShip();
         Game();
@@ -439,7 +433,6 @@ function StartGame(){
 
 
     function Game(){
-    // clearAllObject();  
     numOfScore = 0;
     isGame = true;
     endGame = -1;
@@ -475,7 +468,6 @@ function StartGame(){
     const newGamebutton = document.createElement("button");
     newGamebutton.textContent = "New Game";
     newGamebutton.setAttribute("id","NewGameButton");
-    // document.body.appendChild(button);
     document.getElementById('Game').appendChild(newGamebutton);
     newGamebutton.addEventListener("click", function() {
       clearScreen();
@@ -557,7 +549,6 @@ function StartGame(){
     mySpaceShip = document.createElement("img");
     mySpaceShip.setAttribute('src',myShip);
     mySpaceShip.setAttribute('id','myImage');
-    // document.body.appendChild(mySpaceShip);
     document.getElementById('Game').appendChild(mySpaceShip);
     mySpaceShip.style.position = "absolute";
     mySpaceShip.style.top = playerY + "px";
@@ -576,12 +567,10 @@ function StartGame(){
         heart.style.left = i * 30 + "px"; 
         heart.style.filter = "drop-shadow(2px 2px 2px #fff)"
         heart.style.top =  screenHeight - (8.9*(screenHeight/10))+ "px"; 
-        // document.body.appendChild(heart);
         document.getElementById('Game').appendChild(heart);
         hearts.push(heart);
 
     }
-    // document.getElementById('Game').appendChild(hearts);
   }
 
   var lastTime = null;
@@ -611,20 +600,12 @@ function StartGame(){
     playerX = clampX(playerX,screenWidth-(9*screenWidth/10), screenWidth-(1.5*screenWidth/10));
     playerY = clampY(playerY,screenHeight-(4*screenHeight/10), screenHeight-(1*screenHeight/10));
 
-
-    
     mySpaceShip.style.top = playerY + "px";
     mySpaceShip.style.left = playerX + "px";
-    
-    // else {
-    //   return;
-    // }
 
     lastTime = currentTime;
     requestID2 = window.requestAnimationFrame(updateMySpace);
 }
-
-    // window.requestAnimationFrame(updateMySpace);
 
   function clampX(v, min, max) {
     return v < min ? min : v > max ? max : v;
@@ -647,7 +628,6 @@ function shoot() {
     for(let i = 0; i< enemySpaceships.length; i++){
       enemySpaceships[i].img.classList.add('laser');
     }
-    // document.body.appendChild(shoot);
     document.getElementById('Game').appendChild(shoot);
     shoot.style.position = "absolute";
     shoot.style.top = playerY + "px";
@@ -679,9 +659,6 @@ function shoot() {
         stopGame();
         return;
       }
-      // console.log(enemySpaceships.length);
-      // console.log(enemyDie);
-      // console.log(isGame);
 
       let curPosition = parseInt(shoot.style.top);
       shoot.style.top = (curPosition - 5) + "px";
@@ -690,8 +667,6 @@ function shoot() {
         shoot.parentNode.removeChild(shoot);
         addScore(enemyDieRow);
       }
-
-    
     }, 10);
   }
   
@@ -703,8 +678,7 @@ function shoot() {
       const shootRect = shoot.getBoundingClientRect();
      if (shootRect.bottom >= enemyRect.top && shootRect.top <= enemyRect.bottom && shootRect.right >= enemyRect.left && shootRect.left <= enemyRect.right) { 
         clearInterval(enemy.intervalId);
-        // numOfEnememies--;
-        enemySpaceships.splice(i,1); //checkkkkkkkkkkkkkkkkkkkkkkkkk
+        enemySpaceships.splice(i,1); 
         enemyDieRow = parseInt(enemy.row);
         enemy.img.parentNode.removeChild(enemy.img);
         const enemyDieAudio = new Audio("sounds/Atari-Space-Invaders.mp3");
@@ -712,12 +686,6 @@ function shoot() {
         return true;
       }
       }
-      // if( enemySpaceships.length === 0){
-      //   enemyDie = true;
-      //   endGame = 2
-      //   stopGame();
-      //   return;
-      // }
     return false;
   }
 
@@ -755,7 +723,6 @@ function addScore() {
     clearTimeout(timeOutEndGameWinner);
     clearTimeout(timeOutEndGame1);
     clearTimeout(timeOutEndGame2);
-    // clearInterval(shootOnMe); //??
     gameMusic.pause();
 
     shootingKey = '';
@@ -768,15 +735,10 @@ function addScore() {
     document.getElementById("Rules").style.display = "none";
     document.getElementById("myModal").style.display = "none";
     document.getElementById("Game").style.display = "none";
-    // document.getElementById("GameOver").style.display = "flex";
-    // document.getElementById("myImage").style.display = "none";
 
     const scoreLabel = document.getElementById("score-label");
     let scoreValue = parseInt(scoreLabel.innerText.replace("Score:", "").trim());
     numOfScore = scoreValue;
-    // let curlist = [new Date(), scoreValue];
-    // (usersScores[curLoggedUser]).push("hey");
-    // window.alert(usersScores[curLoggedUser])
     if (endGame == 0) { // time over
       isGame = false;
       records();
@@ -791,7 +753,6 @@ function addScore() {
           const modaltxt = document.createElement('div');
           modaltxt.classList.add('modal-content-game');
           modaltxt.id = 'myModalYouCanDoBetter';
-          // modaltxt.innerHTML = '<h4>You Can Do Better!<h4><br><h4>Your Score: </h4>' + scoreValue;
           modaltxt.innerHTML = 
           `<h4>You Can Do Better!</h4>
           <h4>Your Score: <span class="score-value">${scoreValue}</span></h4>
@@ -828,7 +789,6 @@ function addScore() {
           button3.addEventListener('click', function() {
             tryAudio.pause();
             document.getElementById("myModalYouCanDoBetter").remove();
-            // championTable();
           });
           
         }, 3000)
@@ -882,7 +842,6 @@ function addScore() {
           button3.addEventListener('click', function() {
             winAudio.pause();
             document.getElementById("myModalWinner").remove();
-            // championTable();
           });
           
         }, 3000)
@@ -937,7 +896,6 @@ function addScore() {
         button3.addEventListener('click', function() {
           looseAudio.pause();
           document.getElementById("myModalyouLost").remove();
-          // championTable();
         });
         
       }, 3000)
@@ -993,25 +951,12 @@ function addScore() {
         button3.addEventListener('click', function() {
           champAudio.pause();
           document.getElementById("myModalchampion").remove();
-          // championTable();
         });
         
       }, 3000)
       
       clearAllObject();
     }
-    // clearAllObject();
-
-    // for(let i =0 ; i < 20 ; i++){
-    //   let enemy = enemySpaceships.pop();
-    //   enemy.img.parentNode.removeChild(enemy.img);
-    // }
-    // mySpaceShip.parentNode.removeChild(mySpaceShip);
-
-    // for(let j=0;j < hearts ; j++){
-    //   let heart = hearts.pop();
-    //   heart.parentNode.removeChild(heart);
-    // }
   endGame = -1;
   }
 
@@ -1023,37 +968,20 @@ function enemySpaceShip() {
     for (let i = 0; i < ENEMIES_PER_ROW- 1 ; i++) {
       var y = ENEMY_VERTICAL_PADDING + screenHeight / 2 - 320 + i * ENEMY_VERTICAL_SPACING;    
       var enemy = {x: x, y: y, speed: 5, directionX: 1, img: new Image(), row: i+1}
-  
-      // myEnemySpaceShip = document.createElement("img");
-      // myEnemySpaceShip.setAttribute('src', myEnemyShip);
-      // myEnemySpaceShip.classList.add('enemyShipImage');
       enemy.img.src = myEnemyShip;
-      enemy.img.classList.add('enemyShipImage') // checkkkkkkkkkkkkkkkkkkkkk
-      // enemy.dataset.row = j + 1;
-      // document.body.appendChild(enemy);
+      enemy.img.classList.add('enemyShipImage')
       enemy.img.style.position = "absolute";
-      // enemy.img.style.display = "block";
       enemy.img.style.top = enemy.y + "px";
       enemy.img.style.left = enemy.x + "px";
       enemy.img.style.height = "60px";
       enemy.img.style.filter = "drop-shadow(2px 2px 2px #fff)";
       enemySpaceships.push(enemy);
-      // document.body.appendChild(enemy.img);
       document.getElementById('Game').appendChild(enemy.img);
-      // window.requestAnimationFrame(updateMySpace);
-
     }
-    // window.requestAnimationFrame(updateEnemySpace);
-
   }
   enemyDie = false;
-  // ShootOnMe();
-  // var enemies = document.querySelectorAll(".enemyShipImage");
   window.requestAnimationFrame(moveEnemySpaceships);
-  // animateEnemies(enemies);
 }
-
-
 
 
 function moveEnemySpaceships() {
@@ -1063,10 +991,6 @@ function moveEnemySpaceships() {
   var speedIncreaseCount = 0; // Keep track of speed increase count
 
   timerEnemySpaceShip = setInterval(function() {
-    // if (!isGame) {
-    //   clearInterval(timerEnemySpaceShip);
-    //   return;
-    // }
     // Update the positions of all enemy spaceships
     for (var i = 0; i < enemySpaceships.length; i++) {
       var enemy = enemySpaceships[i];
@@ -1091,7 +1015,7 @@ function moveEnemySpaceships() {
       startTime = new Date().getTime();
       speedIncreaseCount++;
     }
-  }, 1000 / 60); // ???? 
+  }, 1000 / 60); 
 }
 
 var startTime = new Date().getTime(); // Store the start time to keep track of time
@@ -1117,7 +1041,6 @@ function createEnemyBullet(x, y) {
   bullet.style.left = x + "px";
   bullet.style.height = "40px";
   bullet.style.filter = "drop-shadow(5px 5px 5px #000)"
-  // document.body.appendChild(bullet);
   document.getElementById('Game').appendChild(bullet);
 
   var intervalId = setInterval(function() {
@@ -1174,7 +1097,6 @@ function ShootOnMe(){
  window.requestAnimationFrame(ShootOnMe);
 
  function clearScreen(){
-  // clearAllObject();
   document.getElementById("YouCanDoBetter").style.display = "none";
   document.getElementById("Winner").style.display = "none";
   document.getElementById("youLost").style.display = "none";
@@ -1183,36 +1105,26 @@ function ShootOnMe(){
  }
 
  function clearAllObject(){
-  // if (mySpaceShip){
-    mySpaceShip.parentNode.removeChild(mySpaceShip);
-  // }
+  mySpaceShip.parentNode.removeChild(mySpaceShip);
   mySpaceShip = null;
   shootingKey = '';
 
   // destroy heart for life icon
   for (let i=0; i < hearts.length; i++) {
     let heart = hearts[i]
-    // if (heart){
-      // heart.parentNode.removeChild(heart);
-      document.getElementById('Game').removeChild(heart);
-      
-    // }
+    document.getElementById('Game').removeChild(heart);
   }
   hearts = [];
 
   // destroy pause/play music button
   let button = document.getElementById("audioButton");
-  // if (button){
   button.parentNode.removeChild(button);
-  // }
 
   // destroy enemy spaceships
   var len = enemySpaceships.length;
   for(let i =0 ; i < len ; i++){
       let enemy = enemySpaceships.pop();
-      // if(enemy) {
-        enemy.img.parentNode.removeChild(enemy.img);
-      // }  
+      enemy.img.parentNode.removeChild(enemy.img);
   }
   enemySpaceships = [];
  }
@@ -1262,8 +1174,6 @@ if (prevLastRow) {
 // Add bold class to current last row
 const lastRow = table.querySelector('tbody tr:last-of-type');
 lastRow.classList.add('bold-row');
-
-
 
   const rows = table.querySelectorAll('tbody tr');
   const rowsArray = Array.from(rows);
