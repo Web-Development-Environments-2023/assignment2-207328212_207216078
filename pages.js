@@ -67,6 +67,9 @@ function checkLogin(){
             else{
                 clearFuncLog();
                 settingpage();
+                if(curLoggedUser != name){
+                  clearTable();
+                }
                 curLoggedUser = name;
                 return;
             }
@@ -132,7 +135,7 @@ function checkRegister(){
         usersScores[userNameValue] = new Array() // add list of scores 
         clearFuncReg();
         loginpage();
-        curLoggedUser = userNameValue;
+        // curLoggedUser = userNameValue;
     }
 };
 
@@ -373,7 +376,7 @@ function ChooseKeys(){
 }
 
 function championTable(){
-  records();
+  // records();
   document.getElementById("ChooseKeys").style.display = "none";
   document.getElementById("EnemyShip").style.display = "none";
   document.getElementById("Setting").style.display = "none";
@@ -773,6 +776,7 @@ function addScore() {
     // window.alert(usersScores[curLoggedUser])
     if (endGame == 0) { // time over
       isGame = false;
+      records();
       if (scoreValue < 100) { // "you can do better"
         tryAudio = new Audio("sounds/trynexttime.mp3");
         tryAudio.play();
@@ -808,16 +812,19 @@ function addScore() {
           
           button1.addEventListener('click', function() {
             tryAudio.pause();
+            document.getElementById("myModalYouCanDoBetter").remove();
             Welcomepage();
           });
     
           button2.addEventListener('click', function() {
             tryAudio.pause();
+            document.getElementById("myModalYouCanDoBetter").remove();
             clearScreen();
           });
     
           button3.addEventListener('click', function() {
             tryAudio.pause();
+            document.getElementById("myModalYouCanDoBetter").remove();
             // championTable();
           });
           
@@ -859,16 +866,19 @@ function addScore() {
           const button3 = document.getElementById("button3");   
           button1.addEventListener('click', function() {
             winAudio.pause();
+            document.getElementById("myModalWinner").remove();
             Welcomepage();
           });
     
           button2.addEventListener('click', function() {
             winAudio.pause();
+            document.getElementById("myModalWinner").remove();
             clearScreen();
           });
     
           button3.addEventListener('click', function() {
             winAudio.pause();
+            document.getElementById("myModalWinner").remove();
             // championTable();
           });
           
@@ -879,6 +889,7 @@ function addScore() {
     }
     else if (endGame == 1) { // life over "You Lost"
       isGame = false;
+      records();
       document.getElementById("youLost").style.display = "flex";
       looseAudio = new Audio("sounds/Lose.mp3");
       looseAudio.play();
@@ -910,16 +921,19 @@ function addScore() {
         
         button1.addEventListener('click', function() {
           looseAudio.pause();
+          document.getElementById("myModalyouLost").remove();
           Welcomepage();
         });
   
         button2.addEventListener('click', function() {
           looseAudio.pause();
+          document.getElementById("myModalyouLost").remove();
           clearScreen();
         });
   
         button3.addEventListener('click', function() {
           looseAudio.pause();
+          document.getElementById("myModalyouLost").remove();
           // championTable();
         });
         
@@ -929,6 +943,7 @@ function addScore() {
     }
     else if (endGame == 2) { // all enemies died "Champion!"
       isGame = false;
+      records();
       document.getElementById("champion").style.display = "flex";
       champAudio = new Audio("sounds/we-are-the-champions-copia.mp3");
       champAudio.play();
@@ -962,16 +977,19 @@ function addScore() {
         
         button1.addEventListener('click', function() {
           champAudio.pause();
+          document.getElementById("myModalchampion").remove();
           Welcomepage();
         });
   
         button2.addEventListener('click', function() {
           champAudio.pause();
+          document.getElementById("myModalchampion").remove();
           clearScreen();
         });
   
         button3.addEventListener('click', function() {
           champAudio.pause();
+          document.getElementById("myModalchampion").remove();
           // championTable();
         });
         
@@ -1252,18 +1270,14 @@ lastRow.classList.add('bold-row');
     return scoreB - scoreA;
   });
   rowsArray.forEach(row => table.querySelector('tbody').appendChild(row));
-  // numOfScore = 0;
+
+}
 
 
-  // let latestDate = null;
-  // const rowCount = rowsArray.length;
-  // for (let i = 1; i < rowCount; i++) {
-  //   const row = rowsArray[i];
-  //   const date = new Date(row.cells[0].textContent);
-  //   if (!latestDate || date > latestDate) {
-  //     latestDate = date;
-  //   }
-  // }
-
-  
+function clearTable() {
+  const table = document.querySelector('#championTable table');
+  const rows = table.querySelectorAll('tbody tr');
+  for (let i = 1; i < rows.length; i++) {
+    table.querySelector('tbody').removeChild(rows[i]);
+  }
 }

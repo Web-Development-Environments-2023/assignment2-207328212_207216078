@@ -1565,12 +1565,12 @@ white-space: nowrap;
   animation: glow 1s ease-in-out infinite alternate;
 }
 
-/* footer {
+footer {
   position: fixed;
   bottom: 0;
   width: 100%;
-  background-color: black;
+  /* background-color: black; */
   text-align: center;
   padding: 10px;
   height: 4%;
-} */
+}
