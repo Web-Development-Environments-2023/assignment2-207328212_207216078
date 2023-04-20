@@ -463,6 +463,11 @@ function StartGame(){
         isPlay = !isPlay; // change flag
       });
 
+      button.addEventListener("mouseup", function() {
+        button.blur(); // remove focus from the button
+      });
+
+
     // add new game button
     const newGamebutton = document.createElement("button");
     newGamebutton.textContent = "New Game";
