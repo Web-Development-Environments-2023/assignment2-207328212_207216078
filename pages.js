@@ -132,7 +132,7 @@ function checkRegister(){
 
     else{
         listOfUsers.push([userNameValue,passwordValue]);
-        usersScores[userNameValue] = new Array() // add list of scores 
+        // usersScores[userNameValue] = new Array() // add list of scores 
         clearFuncReg();
         loginpage();
         // curLoggedUser = userNameValue;
@@ -1255,7 +1255,6 @@ const prevLastRow = table.querySelector('.bold-row');
 if (prevLastRow) {
   prevLastRow.classList.remove('bold-row');
 }
-
 // Add bold class to current last row
 const lastRow = table.querySelector('tbody tr:last-of-type');
 lastRow.classList.add('bold-row');
