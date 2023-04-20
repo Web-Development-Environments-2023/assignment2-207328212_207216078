@@ -496,6 +496,9 @@ function StartGame(){
     }
     document.getElementById("countdown").innerHTML = "Game Start"
     timer = setInterval(function() {
+      var minutes = Math.floor(gameDuration / 60);
+      var seconds = gameDuration % 60;
+      var formattedTime = minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
         if (gameDuration <=0 && (!enemyDie)) {
             clearInterval(timer);
             document.getElementById("countdown").innerHTML = "Finished" // end game
@@ -503,7 +506,7 @@ function StartGame(){
             stopGame();
         }
         else {
-            document.getElementById("countdown").innerHTML = gameDuration + " seconds remaining"
+            document.getElementById("countdown").innerHTML = "Time: "+ formattedTime 
         }
         gameDuration -= 1;
     }, 1000)       
