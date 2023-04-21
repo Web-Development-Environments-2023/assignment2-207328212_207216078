@@ -547,8 +547,10 @@ ab span:nth-child(4){
 }
 
 .rules {
-  top: 20%;
+    top: 8%;
     position: absolute;
+    justify-content: center;
+    display: inline-block;
     width: 100%;
 	  font-family: 'Roboto', sans-serif;
     padding: 0;
@@ -571,6 +573,8 @@ ab span:nth-child(4){
 
 .centered {
     position: relative;
+    display: flex;
+    justify-content: center;
     line-height: 1.8em;
     font-weight: bold;
     font-style: italic;
@@ -586,10 +590,15 @@ ab span:nth-child(4){
   .Inst {
     position: absolute; 
     display: block;
+    justify-content: center;
+    /* display: block; */
     width: 100%;
+    line-height: 1.4em;
     font-family: "Press Start 2P";
     font-family: fantasy;
+    height: 100%;
 }
+
 
 
   .modal {
